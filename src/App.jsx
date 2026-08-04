@@ -5,16 +5,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   const onbutton = () => {
-    try{
-      fetch("https://api.com", {
-        method: "GET",
-      })
-      .then(r => console.log(r.json()))
-      .then(console.log)
-      .catch(console.error);
-    } catch(err){
-      console.log('--err--', err)
-    }
+    setCount((count) => count + 1)
   }
 
   return (
