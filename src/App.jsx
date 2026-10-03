@@ -11,14 +11,16 @@ function App() {
     return () => window.clearTimeout(id)
   }, [pulse])
 
+  useEffect(() => {
+    setPulse(true)
+  }, [count])
+
   const increment = () => {
     setCount((value) => value + 1)
-    setPulse(true)
   }
 
   const reset = () => {
     setCount(0)
-    setPulse(true)
   }
 
   return (
@@ -35,11 +37,10 @@ function App() {
         <p className="support">Keep a clean tally without the noise.</p>
 
         <p
-          key={count}
           className={`tally${pulse ? ' tally-pulse' : ''}`}
           aria-live="polite"
         >
-          {count}
+          <span key={count}>{count}</span>
         </p>
 
         <div className="actions">
